@@ -4,7 +4,7 @@ const bibtexCode = document.querySelector("#bibtex-code");
 
 if (scrollButton) {
   scrollButton.addEventListener("click", () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    window.scrollTo({ top: 0, behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? "auto" : "smooth" });
   });
 
   window.addEventListener("scroll", () => {
@@ -18,15 +18,13 @@ if (copyButton && bibtexCode) {
     const originalText = copyText.textContent;
     const citation = bibtexCode.textContent.trim();
 
+    const status = document.querySelector('.copy-status');
     try {
       await navigator.clipboard.writeText(citation);
+      if (status) status.textContent = 'Citation copied.';
     } catch {
-      const textArea = document.createElement("textarea");
-      textArea.value = citation;
-      document.body.appendChild(textArea);
-      textArea.select();
-      document.execCommand("copy");
-      document.body.removeChild(textArea);
+      if (status) status.textContent = 'Copy is unavailable. Select the citation below or download the .bib file.';
+      return;
     }
 
     copyButton.classList.add("copied");

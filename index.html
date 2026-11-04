@@ -6,7 +6,7 @@
   <meta name="title" content="HIPO: Instruction Hierarchy via Constrained Reinforcement Learning">
   <meta name="description" content="HIPO formulates hierarchical instruction following as constrained reinforcement learning, enforcing system prompt compliance while optimizing user utility.">
   <meta name="keywords" content="HIPO, hierarchical instruction following, constrained reinforcement learning, CMDP, safe RL, GRPO, LLM alignment, system prompts">
-  <meta name="author" content="Keru Chen, Jun Luo, Sen Lin, Yingbin Liang, Alvaro Velasquez, Nathaniel Bastian, Shaofeng Zou">
+  <meta name="author" content="Keru Chen, Jun Luo, Sen Lin, Yingbin Liang, Alvaro Velasquez, Nathaniel D. Bastian, Shaofeng Zou">
   <meta name="robots" content="index, follow">
   <meta name="theme-color" content="#0b6e69">
 
@@ -14,8 +14,9 @@
   <meta property="og:site_name" content="HIPO Project">
   <meta property="og:title" content="HIPO: Instruction Hierarchy via Constrained Reinforcement Learning">
   <meta property="og:description" content="A constrained RL framework that treats system prompts as algorithmic boundaries and maximizes user utility within the feasible region.">
-  <meta property="og:url" content="https://arxiv.org/abs/2603.16152">
-  <meta property="og:image" content="static/images/hipo-framework.png">
+  <meta property="og:url" content="https://cliverchen.github.io/hipo-llm-instruction-hierarchy/">
+  <link rel="canonical" href="https://cliverchen.github.io/hipo-llm-instruction-hierarchy/">
+  <meta property="og:image" content="https://cliverchen.github.io/hipo-llm-instruction-hierarchy/static/images/hipo-framework.png">
   <meta property="og:image:alt" content="HIPO framework overview">
 
   <meta name="citation_title" content="HIPO: Instruction Hierarchy via Constrained Reinforcement Learning">
@@ -24,19 +25,27 @@
   <meta name="citation_author" content="Lin, Sen">
   <meta name="citation_author" content="Liang, Yingbin">
   <meta name="citation_author" content="Velasquez, Alvaro">
-  <meta name="citation_author" content="Bastian, Nathaniel">
+  <meta name="citation_author" content="Bastian, Nathaniel D.">
   <meta name="citation_author" content="Zou, Shaofeng">
-  <meta name="citation_publication_date" content="2026/03/17">
+  <meta name="citation_publication_date" content="2026">
   <meta name="citation_arxiv_id" content="2603.16152">
-  <meta name="citation_pdf_url" content="https://arxiv.org/pdf/2603.16152">
+  <meta name="citation_pdf_url" content="https://cliverchen.github.io/hipo-llm-instruction-hierarchy/paper.pdf">
+  <meta name="citation_online_date" content="2026/03/17">
+  <meta name="citation_conference_title" content="Proceedings of the 2026 Conference on Empirical Methods in Natural Language Processing">
+  <meta name="citation_firstpage" content="3168">
+  <meta name="citation_lastpage" content="3191">
+  <meta name="citation_doi" content="10.18653/2026.emnlp-main.138">
+  <meta name="citation_abstract_html_url" content="https://cliverchen.github.io/hipo-llm-instruction-hierarchy/">
 
   <title>HIPO | Instruction Hierarchy via Constrained Reinforcement Learning</title>
   <link rel="icon" href="static/images/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="static/css/index.css">
   <script defer src="static/js/fontawesome.all.min.js"></script>
   <script defer src="static/js/index.js"></script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "ScholarlyArticle", "@id": "https://cliverchen.github.io/hipo-llm-instruction-hierarchy/", "url": "https://cliverchen.github.io/hipo-llm-instruction-hierarchy/", "headline": "HIPO: Instruction Hierarchy via Constrained Reinforcement Learning", "name": "HIPO: Instruction Hierarchy via Constrained Reinforcement Learning", "author": [{"@type": "Person", "name": "Keru Chen"}, {"@type": "Person", "name": "Jun Luo"}, {"@type": "Person", "name": "Sen Lin"}, {"@type": "Person", "name": "Yingbin Liang"}, {"@type": "Person", "name": "Alvaro Velasquez"}, {"@type": "Person", "name": "Nathaniel D. Bastian"}, {"@type": "Person", "name": "Shaofeng Zou"}], "datePublished": "2026-10", "abstract": "Hierarchical Instruction Following (HIF) refers to the problem of prompting large language models with a priority-ordered stack of instructions. Standard methods like RLHF and DPO typically fail in this problem since they mainly optimize for a single objective, failing to explicitly enforce system prompt compliance. Meanwhile, supervised fine-tuning relies on mimicking filtered, compliant data, which fails to establish the priority asymmetry at the algorithmic level. In this paper, we introduce HIPO, a novel alignment framework that formulates HIF as a Constrained Markov Decision Process. HIPO elevates system prompts from mere input context to strict algorithmic boundaries. Using a primal-dual safe reinforcement learning approach, the algorithm dynamically enforces system prompt compliance as an explicit constraint, maximizing user utility strictly within this feasible region. Extensive evaluations across diverse model architectures (e.g., Qwen, Phi, Llama) demonstrate that HIPO significantly improves both system compliance and user utility. Furthermore, mechanistic analysis reveals that this constrained optimization autonomously drives the model to shift its attention toward long-range system tokens, providing a principled foundation for reliable LLM deployment in complex workflows.", "isAccessibleForFree": true, "inLanguage": "en", "sameAs": ["https://aclanthology.org/2026.emnlp-main.138/", "https://arxiv.org/abs/2603.16152"], "identifier": "https://doi.org/10.18653/2026.emnlp-main.138", "isPartOf": {"@type": "PublicationVolume", "name": "Proceedings of the 2026 Conference on Empirical Methods in Natural Language Processing"}, "pagination": "3168–3191", "encoding": {"@type": "MediaObject", "encodingFormat": "application/pdf", "contentUrl": "https://cliverchen.github.io/hipo-llm-instruction-hierarchy/paper.pdf"}, "image": "https://cliverchen.github.io/hipo-llm-instruction-hierarchy/static/images/hipo-framework.png"}</script>
 </head>
 <body>
+  <a class="skip-link" href="#top">Skip to content</a>
   <button class="scroll-to-top" type="button" aria-label="Scroll to top" title="Scroll to top">
     <i class="fas fa-chevron-up" aria-hidden="true"></i>
   </button>
@@ -44,10 +53,11 @@
   <nav class="site-nav" aria-label="Primary navigation">
     <a class="nav-brand" href="#top">HIPO</a>
     <div class="nav-links">
-      <a href="#abstract">Abstract</a>
+      <a href="https://cliverchen.github.io/">Keru Chen</a>
+      <a href="#problem-statement">Problem</a>
       <a href="#method">Method</a>
-      <a href="#results">Results</a>
-      <a href="#analysis">Analysis</a>
+      <a href="#results">Key findings</a>
+      <a href="#limitations">Limitations</a>
       <a href="#citation">Citation</a>
     </div>
   </nav>
@@ -58,9 +68,9 @@
         <p class="eyebrow">arXiv:2603.16152</p>
         <h1>HIPO: Instruction Hierarchy via Constrained Reinforcement Learning</h1>
         <p class="authors">
-          Keru Chen, Jun Luo, Sen Lin, Yingbin Liang, Alvaro Velasquez, Nathaniel Bastian, Shaofeng Zou
+          <a href="https://cliverchen.github.io/">Keru Chen</a>, Jun Luo, Sen Lin, Yingbin Liang, Alvaro Velasquez, Nathaniel D. Bastian, Shaofeng Zou
         </p>
-        <p class="venue">arXiv preprint, submitted March 17, 2026</p>
+        <p class="venue">EMNLP 2026 · Main Conference · October 2026 · pp. 3168–3191</p>
         <p class="lead">
           HIPO models hierarchical instruction following as constrained optimization: system prompt compliance is the constraint, and user utility is optimized within the feasible region.
         </p>
@@ -69,19 +79,34 @@
             <i class="fas fa-file-alt" aria-hidden="true"></i>
             <span>arXiv</span>
           </a>
-          <a class="button" href="https://arxiv.org/pdf/2603.16152" target="_blank" rel="noreferrer" title="Open arXiv PDF">
+          <a class="button" href="paper.pdf" target="_blank" rel="noreferrer" title="Read the published EMNLP paper">
             <i class="fas fa-file-pdf" aria-hidden="true"></i>
             <span>PDF</span>
           </a>
+          <a class="button" href="https://aclanthology.org/2026.emnlp-main.138/">EMNLP paper</a>
+          <a class="button" href="https://doi.org/10.18653/2026.emnlp-main.138">DOI</a>
+          <a class="button" href="https://github.com/CLIVERCHEN/HIPO">Code</a>
+          <a class="button" href="#citation">BibTeX</a>
         </div>
       </div>
     </section>
 
+    <section class="section light" id="abstract">
+      <div class="container"><h2>Abstract</h2><p>Hierarchical Instruction Following (HIF) refers to the problem of prompting large language models with a priority-ordered stack of instructions. Standard methods like RLHF and DPO typically fail in this problem since they mainly optimize for a single objective, failing to explicitly enforce system prompt compliance. Meanwhile, supervised fine-tuning relies on mimicking filtered, compliant data, which fails to establish the priority asymmetry at the algorithmic level. In this paper, we introduce HIPO, a novel alignment framework that formulates HIF as a Constrained Markov Decision Process. HIPO elevates system prompts from mere input context to strict algorithmic boundaries. Using a primal-dual safe reinforcement learning approach, the algorithm dynamically enforces system prompt compliance as an explicit constraint, maximizing user utility strictly within this feasible region. Extensive evaluations across diverse model architectures (e.g., Qwen, Phi, Llama) demonstrate that HIPO significantly improves both system compliance and user utility. Furthermore, mechanistic analysis reveals that this constrained optimization autonomously drives the model to shift its attention toward long-range system tokens, providing a principled foundation for reliable LLM deployment in complex workflows.</p>
+      <p class="source-note">Original abstract · <a href="https://aclanthology.org/2026.emnlp-main.138/">EMNLP 2026 published version</a></p></div>
+    </section>
+
+    <section class="section" id="problem-statement"><div class="container">
+      <h2>Problem statement</h2>
+      <p>A system instruction may require an assistant to respond with questions, while the user asks for a direct factual answer. Following the user request can then violate the higher-priority instruction. Hierarchical instruction following asks the model to help the user within the constraints set by the system.</p>
+      <p>The difficulty is the asymmetry between these objectives. A training signal that rewards a helpful answer can also reward a response that breaks the system's rules. HIPO makes that asymmetry explicit in the optimization problem. <a href="paper.pdf#page=5">Paper, Section 5.1</a></p>
+    </div></section>
+
     <section class="figure-band" aria-labelledby="framework-title">
       <div class="wide-container">
-        <h2 id="framework-title">Framework Overview</h2>
+        <h2 id="framework-title">Framework overview</h2>
         <figure class="paper-figure">
-          <img src="static/images/hipo-framework.png" alt="HIPO framework showing problem setting, Pareto improvement, and optimization pipeline">
+          <img src="static/images/hipo-framework.png" width="3038" height="751" loading="lazy" alt="HIPO framework showing problem setting, Pareto improvement, and optimization pipeline">
           <figcaption>
             HIPO separates system compliance and user utility rewards, then solves instruction hierarchy with a primal-dual constrained RL objective.
           </figcaption>
@@ -89,23 +114,11 @@
       </div>
     </section>
 
-    <section class="section light" id="abstract">
-      <div class="container">
-        <h2>Abstract</h2>
-        <p>
-          Hierarchical Instruction Following (HIF) refers to prompting large language models with a priority-ordered stack of instructions. Standard RLHF and DPO mainly optimize a single objective, so they do not explicitly enforce system prompt compliance. Supervised fine-tuning imitates filtered compliant data, but does not establish priority asymmetry at the algorithmic level.
-        </p>
-        <p>
-          HIPO formulates HIF as a Constrained Markov Decision Process. System prompts become strict algorithmic boundaries rather than ordinary input context. A primal-dual safe reinforcement learning procedure dynamically enforces system compliance while maximizing user utility inside the feasible region. Experiments across Qwen, Phi, and Llama show improvements in both system compliance and user utility, and attention analysis shows a shift toward long-range system tokens.
-        </p>
-      </div>
-    </section>
-
-    <section class="section" id="method">
+<section class="section" id="method">
       <div class="container">
         <h2>Method</h2>
         <p>
-          A hierarchical prompt is written as <code>x = [x_sys, x_user]</code>. The system prompt specifies global constraints, formatting rules, safety policies, or personas. The user prompt specifies the immediate task. HIPO treats these two prompt segments asymmetrically: the system prompt is not another preference to trade off against the user prompt, but a boundary that the policy must satisfy.
+          A hierarchical prompt is written as <code>x = [x_sys, x_user]</code>. The system prompt specifies global constraints, formatting rules, safety policies, or personas. The user prompt specifies the immediate task. HIPO treats these two prompt segments asymmetrically: the system prompt defines the compliance constraint used during training.
         </p>
         <p>
           The optimization target is <code>max E[r_user]</code> subject to <code>E[r_sys] &gt;= tau</code>. The two rewards are measured with separate LLM-as-judge calls: one judge evaluates whether the response follows the system prompt while ignoring the user task, and another evaluates whether the response satisfies the user prompt while isolating it from system constraints. This avoids mixing two different evaluation criteria in a single judgment.
@@ -116,31 +129,40 @@
       </div>
     </section>
 
-    <section class="section light" id="results">
-      <div class="wide-container">
-        <h2>Main Results</h2>
-        <p class="section-intro">
-          Table 1 reports <code>r_sys / r_user</code> on conflicting and aligned splits. HIPO consistently approaches or exceeds the target system compliance threshold <code>tau = 0.7</code> while preserving user utility.
-        </p>
-        <figure class="paper-figure result-table">
-          <img src="static/images/table1-results.png" alt="Table 1: evaluation of HIPO and baselines across conflicting and aligned splits">
-        </figure>
-      </div>
-    </section>
+    <section class="section light" id="results"><div class="wide-container">
+      <h2>Key findings</h2>
+      <p class="section-intro">SystemCheck provides 1,800 training and 200 held-out instruction pairs, split between conflicting and aligned instructions. System compliance and user utility are separate LLM-judge scores in [0, 1], not binary success rates.</p>
+      <h3>1. Better utility under instruction conflict</h3>
+      <p>For Qwen3-8B, HIPO reaches <strong>0.70 compliance / 0.72 utility</strong>, versus SFT's <strong>0.66 / 0.38</strong> and DPO's <strong>0.65 / 0.33</strong>. <a href="paper.pdf#page=7">Table 1</a></p>
+      <div class="simple-table-wrap" tabindex="0" role="region" aria-label="Qwen3-8B results, horizontally scrollable"><table class="simple-table">
+        <caption>Qwen3-8B · SystemCheck held-out evaluation</caption>
+        <thead><tr><th scope="col">Method</th><th scope="col">Conflict: compliance</th><th scope="col">Conflict: utility</th><th scope="col">Aligned: compliance</th><th scope="col">Aligned: utility</th></tr></thead>
+        <tbody><tr><th scope="row">SFT</th><td>0.66</td><td>0.38</td><td>0.67</td><td>0.56</td></tr><tr><th scope="row">DPO</th><td>0.65</td><td>0.33</td><td>0.68</td><td>0.38</td></tr><tr><th scope="row">HIPO</th><td><strong>0.70</strong></td><td><strong>0.72</strong></td><td><strong>0.77</strong></td><td><strong>0.81</strong></td></tr></tbody>
+      </table></div>
+      <h3>2. Gains also appear when instructions agree</h3>
+      <p>On the aligned split, Qwen3-8B reaches <strong>0.77 compliance / 0.81 utility</strong>, compared with SFT's <strong>0.67 / 0.56</strong>. The improvement is therefore not limited to handling direct conflicts. <a href="paper.pdf#page=7">Table 1</a></p>
+      <h3>3. The threshold changes the observed tradeoff</h3>
+      <p>For Qwen3-1.7B, thresholds of <strong>0.50, 0.65, and 0.75</strong> give compliance/utility pairs of <strong>(0.51, 0.75), (0.65, 0.65), and (0.73, 0.47)</strong>. A higher target can sacrifice utility, and observed compliance need not reach the target exactly. <a href="paper.pdf#page=6">Section 5.2</a></p>
+      <h3>4. Safety gains need not come with high over-refusal</h3>
+      <p>With a safety system prompt, Qwen3-1.7B's WildJailbreak attack success rate is <strong>0.2255</strong>, versus SFT's <strong>0.3250</strong>. Its over-refusal rate is <strong>0.0857</strong>, versus <strong>0.2809</strong>. MMLU-Redux is <strong>0.5916</strong>, close to the base model's <strong>0.5946</strong>. These results concern the evaluated model and benchmarks. <a href="paper.pdf#page=8">Table 2</a></p>
+      <h3>5. Attention shifts toward the system segment</h3>
+      <p>On 200 paired SystemCheck samples at response onset, Qwen3-1.7B's system/user attention ratio rises from <strong>9.218 to 9.719</strong>. This is an observational signature of the trained model, rather than evidence that the attention shift causes the behavioral improvement. <a href="paper.pdf#page=9">Section 6 and Table 3</a></p>
+    </div></section>
+
 
     <section class="section split" id="analysis">
       <div class="container split-layout">
         <div>
-          <h2>Optimization Dynamics</h2>
+          <h2>Optimization dynamics</h2>
           <p>
-            The Lagrange multiplier rises when system compliance is below the threshold and decays after the constraint is satisfied. This is the practical mechanism that keeps the policy inside the system-compliant region while still allowing improvement on user utility.
+            The Lagrange multiplier rises when system compliance is below the threshold and decays after the constraint is satisfied. This feedback adjusts the relative weight of compliance and utility during training. The constraint is on expected reward and does not guarantee compliance for every response.
           </p>
           <p>
             In safety evaluations, HIPO also reduces attack success rates when safety-oriented system prompts are present, without collapsing into the over-refusal behavior observed in some supervised baselines.
           </p>
         </div>
         <figure class="paper-figure analysis-figure">
-          <img src="static/images/lagrangian-dynamics.png" alt="Lagrange multiplier and system reward EMA during HIPO training">
+          <img src="static/images/lagrangian-dynamics.png" width="2139" height="2064" loading="lazy" alt="Lagrange multiplier and system reward EMA during HIPO training">
           <figcaption>
             The dual variable adapts until the system reward EMA stabilizes around the target threshold.
           </figcaption>
@@ -150,7 +172,7 @@
 
     <section class="section light">
       <div class="container">
-        <h2>Mechanistic Signal</h2>
+        <h2>Attention measurements</h2>
         <p class="section-intro">
           On 200 SystemCheck samples at response onset, HIPO shifts attention toward the system segment and farther prompt positions compared with the base Qwen3-1.7B model.
         </p>
@@ -189,6 +211,20 @@
       </div>
     </section>
 
+    <section class="section" id="relation-to-prior-work"><div class="container">
+      <h2>Relation to SFT and DPO</h2>
+      <p>SFT learns from demonstrations; DPO optimizes offline preference pairs. HIPO instead constrains expected system compliance and optimizes user utility with a learned Lagrange multiplier. It still combines reward signals in a scalar advantage during each update. The distinguishing feature is that the multiplier adapts to constraint shortfall, rather than remaining a fixed preference weight.</p>
+      <p>HIPO uses GRPO-style group normalization during training. Unlike inference-time attention interventions such as Split-Softmax, ordinary HIPO inference produces one response without an external judge or a manual change to attention. <a href="paper.pdf#page=5">Sections 4 and 5.1</a></p>
+    </div></section>
+    <section class="section light" id="limitations"><div class="container">
+      <h2>Limitations</h2>
+      <p>The compliance constraint holds in expectation. It is not a deterministic guarantee for each answer: at a target of 0.7, the Phi-3-3.8B conflicting-split score is 0.68. Highly adversarial or out-of-distribution instructions can still cause deviations.</p>
+      <p>Training and evaluation rely on LLM judges, which add computational cost and evaluator subjectivity. Attention analysis is observational. The work also assumes that access to the system-instruction interface is protected; compliance alone does not make a malicious system prompt benign. <a href="paper.pdf#page=10">Limitations and ethical considerations</a></p>
+    </div></section>
+    <section class="section" id="resources"><div class="container">
+      <h2>Resources</h2>
+      <ul><li><a href="paper.pdf">Published EMNLP paper and appendices</a></li><li><a href="https://github.com/CLIVERCHEN/HIPO">Official implementation, training scripts, data, and evaluation setup</a></li><li><a href="https://arxiv.org/abs/2603.16152">Original arXiv version</a></li></ul>
+    </div></section>
     <section class="section" id="citation">
       <div class="container">
         <div class="bibtex-header">
@@ -198,22 +234,27 @@
             <span class="copy-text">Copy</span>
           </button>
         </div>
-        <pre id="bibtex-code"><code>@misc{chen2026hipoinstructionhierarchyconstrained,
-  title = {HIPO: Instruction Hierarchy via Constrained Reinforcement Learning},
-  author = {Chen, Keru and Luo, Jun and Lin, Sen and Liang, Yingbin and Velasquez, Alvaro and Bastian, Nathaniel and Zou, Shaofeng},
+        <pre id="bibtex-code"><code>@inproceedings{chen-etal-2026-hipo,
+  title = {{HIPO}: Instruction Hierarchy via Constrained Reinforcement Learning},
+  author = {Chen, Keru and Luo, Jun and Lin, Sen and Liang, Yingbin and Velasquez, Alvaro and Bastian, Nathaniel D. and Zou, Shaofeng},
+  booktitle = {Proceedings of the 2026 Conference on Empirical Methods in Natural Language Processing},
+  month = oct,
   year = {2026},
-  eprint = {2603.16152},
-  archivePrefix = {arXiv},
-  primaryClass = {cs.LG},
-  doi = {10.48550/arXiv.2603.16152},
-  url = {https://arxiv.org/abs/2603.16152}
+  address = {Budapest, Hungary},
+  publisher = {Association for Computational Linguistics},
+  pages = {3168--3191},
+  doi = {10.18653/2026.emnlp-main.138},
+  url = {https://aclanthology.org/2026.emnlp-main.138/}
 }</code></pre>
+        <p><a href="citation.bib" download>Download .bib</a></p>
+        <p class="copy-status" role="status" aria-live="polite"></p>
       </div>
     </section>
   </main>
 
   <footer class="footer">
     <div class="container">
+      <p><a href="https://cliverchen.github.io/#publications">Back to Keru Chen’s publications</a> · <a href="https://cliverchen.github.io/projects/">More project pages</a></p>
       <p>
         Source page adapted from the
         <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank" rel="noreferrer">Academic Project Page Template</a>.
