@@ -39,7 +39,7 @@
 
   <title>HIPO | Instruction Hierarchy via Constrained Reinforcement Learning</title>
   <link rel="icon" href="static/images/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="static/css/index.css">
+  <link rel="stylesheet" href="static/css/index.css?v=d71f664558bb">
   <script defer src="static/js/fontawesome.all.min.js"></script>
   <script defer src="static/js/index.js"></script>
   <script type="application/ld+json">{"@context": "https://schema.org", "@type": "ScholarlyArticle", "@id": "https://cliverchen.github.io/hipo-llm-instruction-hierarchy/", "url": "https://cliverchen.github.io/hipo-llm-instruction-hierarchy/", "headline": "HIPO: Instruction Hierarchy via Constrained Reinforcement Learning", "name": "HIPO: Instruction Hierarchy via Constrained Reinforcement Learning", "author": [{"@type": "Person", "name": "Keru Chen"}, {"@type": "Person", "name": "Jun Luo"}, {"@type": "Person", "name": "Sen Lin"}, {"@type": "Person", "name": "Yingbin Liang"}, {"@type": "Person", "name": "Alvaro Velasquez"}, {"@type": "Person", "name": "Nathaniel D. Bastian"}, {"@type": "Person", "name": "Shaofeng Zou"}], "datePublished": "2026-10", "abstract": "Hierarchical Instruction Following (HIF) refers to the problem of prompting large language models with a priority-ordered stack of instructions. Standard methods like RLHF and DPO typically fail in this problem since they mainly optimize for a single objective, failing to explicitly enforce system prompt compliance. Meanwhile, supervised fine-tuning relies on mimicking filtered, compliant data, which fails to establish the priority asymmetry at the algorithmic level. In this paper, we introduce HIPO, a novel alignment framework that formulates HIF as a Constrained Markov Decision Process. HIPO elevates system prompts from mere input context to strict algorithmic boundaries. Using a primal-dual safe reinforcement learning approach, the algorithm dynamically enforces system prompt compliance as an explicit constraint, maximizing user utility strictly within this feasible region. Extensive evaluations across diverse model architectures (e.g., Qwen, Phi, Llama) demonstrate that HIPO significantly improves both system compliance and user utility. Furthermore, mechanistic analysis reveals that this constrained optimization autonomously drives the model to shift its attention toward long-range system tokens, providing a principled foundation for reliable LLM deployment in complex workflows.", "isAccessibleForFree": true, "inLanguage": "en", "sameAs": ["https://aclanthology.org/2026.emnlp-main.138/", "https://arxiv.org/abs/2603.16152"], "identifier": "https://doi.org/10.18653/2026.emnlp-main.138", "isPartOf": {"@type": "PublicationVolume", "name": "Proceedings of the 2026 Conference on Empirical Methods in Natural Language Processing"}, "pagination": "3168–3191", "encoding": {"@type": "MediaObject", "encodingFormat": "application/pdf", "contentUrl": "https://cliverchen.github.io/hipo-llm-instruction-hierarchy/paper.pdf"}, "image": "https://cliverchen.github.io/hipo-llm-instruction-hierarchy/static/images/hipo-framework.png"}</script>
@@ -106,7 +106,7 @@
       <div class="wide-container">
         <h2 id="framework-title">Framework overview</h2>
         <figure class="paper-figure">
-          <img src="static/images/hipo-framework.png" width="3038" height="751" loading="lazy" alt="HIPO framework showing problem setting, Pareto improvement, and optimization pipeline">
+          <a href="static/images/hipo-framework.png" aria-label="Open HIPO framework figure at full size"><img src="static/images/hipo-framework.png" width="3038" height="751" loading="lazy" alt="HIPO framework showing problem setting, Pareto improvement, and optimization pipeline"></a>
           <figcaption>
             HIPO separates system compliance and user utility rewards, then solves instruction hierarchy with a primal-dual constrained RL objective.
           </figcaption>
@@ -162,7 +162,7 @@
           </p>
         </div>
         <figure class="paper-figure analysis-figure">
-          <img src="static/images/lagrangian-dynamics.png" width="2139" height="2064" loading="lazy" alt="Lagrange multiplier and system reward EMA during HIPO training">
+          <a href="static/images/lagrangian-dynamics.png" aria-label="Open optimization dynamics figure at full size"><img src="static/images/lagrangian-dynamics.png" width="2139" height="2064" loading="lazy" alt="Lagrange multiplier and system reward EMA during HIPO training"></a>
           <figcaption>
             The dual variable adapts until the system reward EMA stabilizes around the target threshold.
           </figcaption>

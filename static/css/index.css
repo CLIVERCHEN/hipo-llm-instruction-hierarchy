@@ -52,6 +52,7 @@ a:hover {
 img {
   display: block;
   max-width: 100%;
+  height: auto;
 }
 
 code {
@@ -225,6 +226,10 @@ h2 {
 
 .paper-figure {
   margin: 0;
+}
+
+.paper-figure > a {
+  display: block;
 }
 
 .paper-figure img {
@@ -462,11 +467,6 @@ pre code {
 
   .button {
     width: 100%;
-  }
-
-  .paper-figure:not(.result-table) img {
-    min-height: 190px;
-    object-fit: contain;
   }
 
   .bibtex-header {
